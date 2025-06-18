@@ -6,9 +6,9 @@ user choose play again or quit.
   	SET randomNumber TO random integer between 1 and 100
   	SET numberOfGuesses TO 0
   	SET playerGuess TO 0
-		*Set up random generator
-  	WHILE playerGuess is not equal to randomNumber
-   	 DISPLAY "Guess a number between 1 and 100:"
+
+  		WHILE playerGuess is not equal to randomNumber
+   	DISPLAY "Guess a number between 1 and 100:"
     	GET playerGuess
     	SET numberOfGuesses TO numberOfGuesses + 1
 
@@ -16,14 +16,58 @@ user choose play again or quit.
      	 	DISPLAY "Too high!"
     	ELSE IF playerGuess is less than randomNumber
       		DISPLAY "Too low!"
-    	ENDIF
-  	ENDWHILE
+	def play_game():
+    		attempts = 0
+    		max_attempts = 7
 
-  	DISPLAY "Congratulations! You guessed the number in " + numberOfGuesses + " guesses."
-	END
+    	while attempts < max_attempts:
+        	
+
+        attempts += 1
+        print(f"Attempts left: {max_attempts - attempts}")
+
+        if attempts == max_attempts:
+            print("Game over! You've used all your attempts.")
+            restart = input("Do you want to restart? (yes/no): ").lower()
+            if restart == "yes":
+                # Reset attempts and play again
+                attempts = 0  # This restarts the loop
+                print("Starting a new game...")
+            else:
+                print("Thanks for playing!")
+                break  # Exit the loop
+
+		# Start the game
+		play_game()
+
+		ENDIF
+  		ENDWHILE
+
+  		DISPLAY "Congratulations! You guessed the number in " + numberOfGuesses + " guesses."
+		END
 	
-	variable: playAgain = Y
+		variable: playAgain = Y
 		1. While playAgain is Y		
 		5. print out: "Play again? y/n: "
 		IF y: do nothing/continue
 		IF other: playAgain = N, break end game
+	
+	# Get the user's guess
+	guess = int(input("Guess a number between 1 and 100: ")) # Convert the input to an integer.
+
+	Generate a random number (secret_number) for the user to guess
+	secret_number = random.randint(1, 10)  # You can adjust the range here.
+
+	# Check if the guess is correct
+	if guess == secret_number:
+	  print("Congratulations! You guessed the number!")
+	restart = input("Do you want to restart? (yes/no): ").lower()
+            if restart == "yes":
+ 		# Reset attempts and play again
+                attempts = 0  # This restarts the loop
+                print("Starting a new game...")
+            		else:
+                print("Thanks for playing!")
+                break  # Exit the loop
+
+
