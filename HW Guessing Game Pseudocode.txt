@@ -1,0 +1,29 @@
+---------------------------------------------------------------------------------------------------------
+4. user defines max number , pirnt out random number between 0 and max,
+user choose play again or quit.
+----------------------------------------------------------------------------------------------------------
+		START
+  	SET randomNumber TO random integer between 1 and 100
+  	SET numberOfGuesses TO 0
+  	SET playerGuess TO 0
+		*Set up random generator
+  	WHILE playerGuess is not equal to randomNumber
+   	 DISPLAY "Guess a number between 1 and 100:"
+    	GET playerGuess
+    	SET numberOfGuesses TO numberOfGuesses + 1
+
+    	IF playerGuess is greater than randomNumber
+     	 	DISPLAY "Too high!"
+    	ELSE IF playerGuess is less than randomNumber
+      		DISPLAY "Too low!"
+    	ENDIF
+  	ENDWHILE
+
+  	DISPLAY "Congratulations! You guessed the number in " + numberOfGuesses + " guesses."
+	END
+	
+	variable: playAgain = Y
+		1. While playAgain is Y		
+		5. print out: "Play again? y/n: "
+		IF y: do nothing/continue
+		IF other: playAgain = N, break end game
